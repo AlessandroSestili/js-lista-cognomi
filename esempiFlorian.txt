@@ -1,0 +1,74 @@
+var lista = [
+    'Latte',
+    'Cacao',
+    'Insalata',
+    'Carote',
+    'Cacao',
+    'Pomodori',
+    'Latte',
+    'Piatti pronti',
+    'Pomodori',
+];
+​
+var datiFiltrati = []
+​
+//****************************************************************************/
+​
+var i = 0;
+var containerList = document.getElementById("container_list")
+​
+// valore iniziale i = 0
+// length della lista è 9
+while (i < lista.length) {
+    // elemento dell'array "lista" con indice i = 0
+    // i=0 - "latte"; i=1 - "Cacao"
+    var elementoDaAnalizzare = lista[i];
+​
+    // booleano che ci serve per capire se l'elemento è già stato aggiunto alla pagina
+    var elementoEsiste = false
+​
+​
+    // Controllo che l'elemento non sia già stato scritto
+    /*
+    Per ogni elemento contenuto nell'array "datiFiltrati", 
+    controllo se il valore della variabile "elementoDaAnalizzare"
+    è uguale a uno degli elementi del array "datiFiltrati"
+    */
+    for (var j = 0; j < datiFiltrati.length; j++) {
+        // elemento dell'array "dati filtrati" che corrisponde all'indice j
+        var elementoGiaFiltrato = datiFiltrati[j];
+​
+        // Se il valore della variabile "elementoDaAnalizzare"
+        // è uguale a uno degli elementi del array "datiFiltrati"
+        if (elementoDaAnalizzare === elementoGiaFiltrato) {
+​
+            // Setto la variabile a true in modo da poterla leggere successivamente
+            // e decidere se aggiungere all'html questo elemento, rappresentato dalla
+            // variabile "elementoDaAnalizzare"
+            elementoEsiste = true
+        }
+    }
+​
+​
+    // Se la variabile "elementoEsiste" è rimasta a false, vuol dire che all'interno
+    // del ciclo for, non ho trovato nessun altro elemento uguale alla variabile 
+    // "elementoDaAnalizzare"
+    if (!elementoEsiste) {
+        datiFiltrati.push(elementoDaAnalizzare)
+        containerList.innerHTML += "<li>" + elementoDaAnalizzare + "</li>";
+    }
+​
+    i++
+}
+​
+​
+console.log("array originale", lista)
+console.log("array filtrato", datiFiltrati)
+​
+​
+​
+​
+​
+​
+​
+// prompt while null
